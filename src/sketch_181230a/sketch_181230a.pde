@@ -6,24 +6,27 @@ float two;
 float three;
 
 int[] array;
+
+int reset;
 void setup() {
   //2. set the size of your window
-  size(400,400);
-
+  size(700,800);
+reset = 0;
   //3. initialize your array with the built in width variable
 array = new int[width];
   
   //4. initialize the ints in the array with random numbers
   //   from 0 to the built in height variable
-one = random(3);
-two = random(3);
-three = random(3);
+one = random(6)+1;
+two = random(6)+1;
+three = random(6)+1;
 
 for(int i = 0; i < array.length; i ++){
   array[i] = int(random(height));
 }
   //5. call the noStroke() method
   noStroke();
+  smooth(8);
 }
 
 void draw() {
@@ -45,7 +48,10 @@ for(int i = 0; i < array.length; i ++){
 
   //9. call the stepSort method
   stepSort(array);
-
+if(reset == 0){
+  delay(500);
+  randomise(array);
+}
   //10. extract the code that randomizes the array into a method.
   
 
@@ -54,19 +60,21 @@ for(int i = 0; i < array.length; i ++){
 }
 
 void stepSort(int[] arr) {
+  reset = 0;
   for (int i = 1; i < arr.length; i++) {
     if (arr[i - 1] > arr[i]) {
       int t = arr[i];
       arr[i] = arr[i - 1];
       arr[i - 1] = t;
+      reset ++;
     }
   }
 }
 
 void randomise(int[] arr){
-one = random(3);
-two = random(3);
-three = random(3);
+one = random(6)+1;
+two = random(6)+1;
+three = random(6)+1;
   for(int i = 0; i < arr.length; i ++){
   arr[i] = int(random(height));
 }
