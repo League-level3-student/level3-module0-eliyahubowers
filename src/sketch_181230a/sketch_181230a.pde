@@ -1,6 +1,9 @@
 /* Copy the code into a new Processing sketch and complete then steps. */
 
 //1. create an array of ints. don't initialize it yet.
+float one;
+float two;
+float three;
 
 int[] array;
 void setup() {
@@ -12,7 +15,10 @@ array = new int[width];
   
   //4. initialize the ints in the array with random numbers
   //   from 0 to the built in height variable
-  
+one = random(3);
+two = random(3);
+three = random(3);
+
 for(int i = 0; i < array.length; i ++){
   array[i] = int(random(height));
 }
@@ -33,6 +39,7 @@ fill(255);
   //   the width is 1
   //   the height is negative the value of the int at that element in the array
 for(int i = 0; i < array.length; i ++){
+  fill((array[i])/one,(array[i])/two,(array[i])/three);
   rect(i,array[i],1,array[i]*-1);
 }
 
@@ -57,6 +64,9 @@ void stepSort(int[] arr) {
 }
 
 void randomise(int[] arr){
+one = random(3);
+two = random(3);
+three = random(3);
   for(int i = 0; i < arr.length; i ++){
   arr[i] = int(random(height));
 }
